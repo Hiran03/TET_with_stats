@@ -1,0 +1,89 @@
+# -------------------------------
+# OS / Editor junk
+# -------------------------------
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.tmp
+*.log
+
+# -------------------------------
+# Python cache
+# -------------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# -------------------------------
+# Jupyter notebook checkpoints
+# -------------------------------
+.ipynb_checkpoints/
+
+# -------------------------------
+# Machine Learning: Model Weights
+# -------------------------------
+*.pt
+*.pth
+*.ckpt
+*.t7
+*.h5
+*.onnx
+*.joblib
+*.pb
+*.bin
+
+# -------------------------------
+# Large Datasets
+# -------------------------------
+*.csv
+*.tsv
+*.parquet
+*.feather
+*.xls
+*.xlsx
+*.json
+
+# -------------------------------
+# Compressed Archives
+# -------------------------------
+*.tar
+*.tar.gz
+*.gz
+*.zip
+*.rar
+*.7z
+*.bz2
+*.xz
+*.tgz
+
+# -------------------------------
+# Images / Videos (optional)
+# -------------------------------
+*.png
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+*.bmp
+*.gif
+*.mp4
+*.avi
+*.mov
+
+# -------------------------------
+# Misc Large Files
+# -------------------------------
+*.npy
+*.npz
+*.mat
+*.sqlite
+*.db
+*.pkl
+*.sav
+
+# -------------------------------
+# Ignore data folders
+# -------------------------------
+
