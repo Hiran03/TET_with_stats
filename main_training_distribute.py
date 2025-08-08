@@ -28,7 +28,7 @@ parser.add_argument('-j',
                     metavar='N',
                     help='number of data loading workers (default: 10)')
 parser.add_argument('--epochs',
-                    default=100,
+                    default=300,
                     type=int,
                     metavar='N',
                     help='number of total epochs to run')
@@ -47,7 +47,7 @@ parser.add_argument('-b',
                          'using Data Parallel or Distributed Data Parallel')
 parser.add_argument('--lr',
                     '--learning-rate',
-                    default=0.001,
+                    default=0.01,
                     type=float,
                     metavar='LR',
                     help='initial learning rate',
@@ -68,7 +68,7 @@ parser.add_argument('--seed',
                     type=int,
                     help='seed for initializing training. ')
 parser.add_argument('--T',
-                    default=10,
+                    default=2,
                     type=int,
                     metavar='N',
                     help='snn simulation time (default: 2)')
@@ -128,12 +128,12 @@ def main_worker(local_rank, nprocs, args):
                             world_size=args.nprocs,
                             rank=local_rank)
     load_names = None
-    save_names = 'VGGSNN_CIFAR10DVS.pth'
+    save_names = 'CIFAR100.pth'
 
     # load_names = 'dvs-cifar1048_V1_D05_VGGSNN_distribute_ensemble_gama05.pth'
     # save_names = 'dvs-cifar1048_V1_D05_VGG11SNN_distribute_ensemble_gamad.pth'
 
-    model = VGGSNN()
+    model = resnet19(num_classes=100)
     model.T = args.T
 
     if load_names != None:
@@ -162,7 +162,7 @@ def main_worker(local_rank, nprocs, args):
 
     # Data loading code
     # train_dataset, val_dataset = data_loaders.build_cifar(use_cifar10=True)
-    train_dataset, val_dataset = data_loaders.build_dvscifar(args.path)
+    train_dataset, val_dataset = data_loaders.build_cifar(cutout=True, use_cifar10=False, download=True)
     train_sampler = torch.utils.data.distributed.DistributedSampler(
         train_dataset)
     train_loader = torch.utils.data.DataLoader(train_dataset,
