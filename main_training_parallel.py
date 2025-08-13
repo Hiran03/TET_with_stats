@@ -41,7 +41,7 @@ parser.add_argument('--TET', default=True, type=bool)
 parser.add_argument('--lamb', default=1e-3, type=float)
 
 # Finetuning
-parser.add_argument('--fine_epochs', default=50, type=int)
+parser.add_argument('--fine_epochs', default=100, type=int)
 parser.add_argument('--fine_time', default=4, type=int)
 parser.add_argument('--fine_lr', default=0.0001, type=float)
 args = parser.parse_args()
@@ -205,3 +205,4 @@ if __name__ == '__main__':
     logger.info(f"Final Best Test Acc: {best_test_acc:.3f} at epoch {best_epoch}")
 
     writer.close()
+    torch.save(model, "cifar100_TET.pth")

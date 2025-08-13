@@ -92,7 +92,7 @@ class ResNet(nn.Module):
         self.fc2 = nn.Linear(256, num_classes)
         self.fc2_s = tdLayer(self.fc2)
         self.spike = LIFSpike()
-        #self.spike_out = LIFSpikeOut()
+        # self.spike_out = LIFSpikeOut()
         self.T = 1
 
         # Zero-initialize the last BN in each residual branch,
@@ -145,7 +145,7 @@ class ResNet(nn.Module):
         x = self.fc1_s(x)
         x = self.spike(x)
         x = self.fc2_s(x)
-        #x = self.spike_out(x)
+        # x = self.spike_out(x)
         return x
 
     def forward(self, x):
